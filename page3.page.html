@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ionic oefen app</title>
+    <!-- Integratie Ionicframework -->
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+    <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css" />
+    <!-- Opmaak SCSS/CSS -->
+    <link rel="stylesheet" href="page3.page.css">
+</head>
+
+<ion-body>
+    <ion-app>
+        <ion-content class="ion-padding no-spacing-grid">           
+            <ion-grid>
+                <!--rij 1 Drie cellen, middelste cel Zoekinvoerscherm-->
+                <ion-row style="--gap: 0px; margin: 0;"><!--geen witruimte-->
+                    <ion-col style="padding: 0;">
+                        <ion-button expand="block" fill="solid" color="secondary" size="small" style="text-transform: none; margin: 0; --border-radius: 0;">
+                        </ion-button>
+                    </ion-col>
+                    <ion-col style="padding: 0;">
+                        <ion-button expand="block" fill="solid" color="secondary" size="small" style="text-transform: none; margin: 0; --border-radius: 0;">
+                        Zoek-invoerscherm
+                        </ion-button>
+                    </ion-col>
+                    <ion-col style="padding: 0;">
+                        <ion-button expand="block" fill="solid" color="secondary" size="small" style="text-transform: none; margin: 0; --border-radius: 0;">  
+                        </ion-button>
+                    </ion-col>
+                </ion-row>
+
+                <!--Rij 2 Drie cellen, middelste cel Afbeelding-->
+                <ion-row style="--gap: 0px; margin: 0;">
+                    <ion-col style="padding: 0;">
+                        <ion-button expand="block" fill="none" color="none" size="small" style="text-transform: none; margin: 0; --border-radius: 0; " >
+                        </ion-button>
+                    </ion-col>
+                    <ion-col style="padding: 0;" >
+                        <ion-card>
+                            <img src="https://images.pexels.com/photos/32261942/pexels-photo-32261942.jpeg" alt="strand"/>
+                            <ion-card-content>Strand</ion-card-content>
+                        </ion-card>
+                    </ion-col>
+                    <ion-col style="padding: 0;">
+                        <ion-button expand="block" fill="none" color="none" size="small" style="text-transform: none; margin: 0; --border-radius: 0;">
+                        </ion-button>
+                    </ion-col>
+                </ion-row>
+
+                <!--Rij 3 Drie cellen, middelste cel Afbeelding -->
+                <ion-row style="--gap: 0px; margin: 0;">
+                    <ion-col style="padding: 0;">
+                        <ion-button expand="block" fill="none" color="none" size="small" style="text-transform: none; margin: 0; --border-radius: 0;">
+                        </ion-button>
+                    </ion-col>
+                    <ion-col style="padding: 0;">
+                        <ion-card>
+                            <img src="https://images.pexels.com/photos/31384748/pexels-photo-31384748.jpeg" alt="hotel"/>
+                            <ion-card-content>Hotel</ion-card-content>
+                        </ion-card>
+                    </ion-col>
+                    <ion-col style="padding: 0;">
+                        <ion-button expand="block" fill="none" color="none" size="small" style="text-transform: none; margin: 0; --border-radius: 0;">
+                        </ion-button>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+
+            <ion-footer class="ion-padding no-spacing-grid">
+                <ion-toolbar>
+                    <ion-grid> 
+                        <ion-row style="--gap: 0px; margin: 0;">
+                            <ion-col style="padding: 0;">
+                                <ion-button expand="block" fill="outline" color="secondary" size="small" style="text-transform: none; margin: 0; --border-radius: 0;">
+                                Navigatiebalk
+                                </ion-button>
+                            </ion-col>
+                            <ion-col style="padding: 0;">
+                                <ion-button expand="block" fill="outline" color="secondary" size="small" style="text-transform: none; margin: 0; --border-radius: 0;">
+                                Navigatiebalk
+                                </ion-button>
+                            </ion-col>
+                            <ion-col style="padding: 0;">
+                                <ion-button expand="block" fill="outline" color="secondary" size="small" style="text-transform: none; margin: 0; --border-radius: 0;">
+                                Navigatiebalk
+                                </ion-button>
+                            </ion-col>
+                        </ion-row>
+                    </ion-grid>
+                </ion-toolbar>
+            </ion-footer>
+        </ion-content>
+    </ion-app>
+</ion-body>
+</html>
+
+<!--Gebruik ion-grid (met rows en cols) als je een dashboard, 
+een fotogalerij of een horizontale knoppenmatrix bouwt 
+waarbij elementen strak naast en onder elkaar moeten staan.
+
+Gebruik ion-item niet binnen een grid. Gebruik ion-item 
+als je een verticale lijst bouwt waarbij elke hele regel een 
+eigen duidelijke functie of invoerveld heeft.
+
+Uitzondering: ion-item in een ion-grid als technische verpakking 
+voor invoerveld rondom <ion-input> en voor zwevende label 
+(label-placement="floating") en de interactieve onderlijnen 
+van het invoerveld-->
