@@ -1,10 +1,38 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Homepage</ion-title>
+  <ion-toolbar color="primary">
+    <ion-title>Home</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="onLogout()">
+        <ion-icon slot="start" name="log-out-outline"></ion-icon>
+        Uitloggen
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
-  <h2>Welkom op onze Homepage</h2>
-  <p>Navigeer naar de andere pages via de navigatiebalk</p>
+  <img src="assets/bloemen.jpg" alt="Bloemen" referrerpolicy="no-referrer" class="header-banner">
+
+  <div class="welcome-container">
+    <h1>Welkom op de Homepage!</h1>
+    <p>Je bent succesvol ingelogd en deze pagina is beveiligd.</p>
+    <p>Gebruik de navigatiebalk onderaan om te wisselen van scherm.</p>
+  </div>
+
+  <ion-button expand="block" color="danger" (click)="onLogout()" class="logout-action-btn">
+    Uitloggen
+  </ion-button>
 </ion-content>
+
+<ion-footer class="ion-no-border">
+  <ion-toolbar class="tab-nav-toolbar">
+    <ion-grid class="ion-no-padding">
+      <ion-row>
+        <ion-col class="ion-text-center"><ion-button fill="clear" routerLink="/home" routerDirection="root" class="tab-nav-btn active-tab"><div class="tab-btn-content"><ion-icon name="home-outline"></ion-icon><ion-label>Home</ion-label></div></ion-button></ion-col>
+        <ion-col class="ion-text-center"><ion-button fill="clear" routerLink="/page1" routerDirection="root" class="tab-nav-btn"><div class="tab-btn-content"><ion-icon name="document-text-outline"></ion-icon><ion-label>Page 1</ion-label></div></ion-button></ion-col>
+        <ion-col class="ion-text-center"><ion-button fill="clear" routerLink="/page2" routerDirection="root" class="tab-nav-btn"><div class="tab-btn-content"><ion-icon name="document-text-outline"></ion-icon><ion-label>Page 2</ion-label></div></ion-button></ion-col>
+        <ion-col class="ion-text-center"><ion-button fill="clear" routerLink="/page3" routerDirection="root" class="tab-nav-btn"><div class="tab-btn-content"><ion-icon name="document-text-outline"></ion-icon><ion-label>Page 3</ion-label></div></ion-button></ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>

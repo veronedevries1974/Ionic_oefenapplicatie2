@@ -1,0 +1,71 @@
+/* Dit zorgt ervoor dat de specifieke login-inhoud de globale groene achtergrond negeert */
+ion-content {
+  --background: linear-gradient(to top left, #4A14BC, #C51162) !important;
+  --color: #ffffff !important; 
+}
+
+/* Custom styling alleen voor de invoervelden op deze aparte pagina */
+.input-item {
+  --background: rgba(255, 255, 255, 0.1) !important; /* Subtiele transparante achtergrond */
+  --color: #ffffff !important;
+  --border-radius: 8px;
+  --padding-start: 16px;
+  --border-color: rgba(255, 255, 255, 0.3) !important; /* Witte subtiele rand in plaats van groen */
+  margin-bottom: 15px;
+  
+  ion-input {
+    --color: #ffffff !important;
+    color: #ffffff !important;
+  }
+}
+
+/* Zorgt ervoor dat het wachtwoord-oogje wit kleurt op de paarse achtergrond */
+ion-input-password-toggle {
+  --color: #ffffff !important;
+}
+
+/* Styling voor de login knop (Witte knop met paarse tekst) */
+ion-button[type="submit"] {
+  --background: #ffffff !important;
+  --color: #4A14BC !important; 
+  font-weight: 700;
+}
+
+/* Styling voor de sign-up tekstknop */
+ion-button[type="button"] {
+  --color: #ffffff !important;
+}
+
+/* Styling voor de bloemenafbeelding op het loginscherm */
+.header-banner {
+  width: 100%;
+  height: 25vh;
+  object-fit: cover;
+  border-bottom-left-radius: 24px;
+  border-bottom-right-radius: 24px;
+  margin-bottom: 16px;
+}
+
+/* Transparante kaart met glaseffect die perfect werkt in álle browsers (inclusief Safari) */
+.login-welcome-card {
+  margin-bottom: 16px;
+  /* Safari fallback: iets minder transparant voor het geval de blur-techniek faalt */
+  background: rgba(255, 255, 255, 0.25) !important; 
+  
+  /* Cruciale toevoeging voor Apple/Safari hardware-versnelling: */
+  -webkit-backdrop-filter: blur(8px) !important;
+  backdrop-filter: blur(8px) !important;
+  
+  --color: #ffffff !important;
+  
+  h2 {
+    margin-top: 0;
+    color: #ffffff;
+  }
+}
+
+.welcome-text {
+  margin-bottom: 0;
+  opacity: 0.9;
+  color: #ffffff;
+}

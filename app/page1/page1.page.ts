@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { IonHeader } from "@ionic/angular/standalone";
+import { Router } from '@angular/router';
+import { LoginService } from '../login.service'; 
 
 @Component({
   selector: 'app-page1',
@@ -9,9 +10,18 @@ import { IonHeader } from "@ionic/angular/standalone";
 })
 export class Page1Page implements OnInit {
 
-  constructor() { }
+  constructor(
+    private loginService: LoginService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
+    // Hier kun je code plaatsen die start zodra de pagina opent
   }
 
+  // Zorgt ervoor dat de uitlogknop in de menubalk werkt
+  onLogout() {
+    this.loginService.logout();
+    this.router.navigateByUrl('/login');
+  }
 }

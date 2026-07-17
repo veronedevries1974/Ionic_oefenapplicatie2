@@ -1,12 +1,12 @@
 <ion-tabs>
-
-  <!--router-outlet laadt pagina's in-->
+  <!-- De router-outlet laadt de losse pagina's (home, page1, etc.) veilig in -->
   <ion-router-outlet></ion-router-outlet>
 
-  <!--Navigatiebalk onderaan de pagina-->
+  <!-- Navigatiebalk strak onderaan de pagina -->
   <ion-tab-bar slot="bottom">
 
-    <ion-tab-button tab="homepage">
+    <!-- tab="home" moet exact matchen met het path uit app-routing.module.ts -->
+    <ion-tab-button tab="home">
       <ion-icon name="home-outline"></ion-icon>
       <ion-label>Home</ion-label>
     </ion-tab-button>
