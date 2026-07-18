@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { NgForm } from '@angular/forms'; // Belangrijke import voor het formulier
+import { NgForm } from '@angular/forms'; 
 import { LoginService } from '../login.service';
 
 @Component({
@@ -10,30 +10,54 @@ import { LoginService } from '../login.service';
   standalone: false,
 })
 export class LoginPage {
+  isLoggingIn: boolean = false;
+  errorMessage: string | null = null; 
 
   constructor(
     private loginService: LoginService, 
     private router: Router
   ) { }
 
-  // Deze functie wordt aangeroepen bij het indienen van het formulier
   onSubmit(form: NgForm) {
-    // Extra controle of het formulier wel echt geldig is
     if (!form.valid) {
+      console.log('Formulier is ongeldig. Controleer de velden.');
+      this.errorMessage = 'Vul alle verplichte velden correct in.';
       return;
     }
 
-    // Hier kun je eventueel de ingevulde waardes bekijken in je console:
+    this.errorMessage = null;
+    this.isLoggingIn = true;
+
     const email = form.value.email;
     const password = form.value.password;
-    console.log('Inloggen met:', email, password);
+    console.log('Inlogpoging voor:', email);
 
-    // Activeer de login-status en stuur door
-    this.loginService.login();          
-    this.router.navigateByUrl('/home'); 
+    setTimeout(() => {
+      if (password === 'wachtwoord123') {
+        this.loginService.login();          
+        this.router.navigateByUrl('/homepage').then(() => {
+          this.isLoggingIn = false;
+          form.reset();
+        });
+      } else {
+        this.isLoggingIn = false;
+        this.errorMessage = 'Onjuist e-mailadres of wachtwoord. Probeer het opnieuw.';
+      }
+    }, 1500);
+  }
 
-    // Optioneel: Maak het formulier weer leeg voor de volgende keer
-    form.reset();
+  // Registratiepagina aanmaken
+  onSignUp() {
+    console.log('Navigeer naar registratiepagina');
+    // direct te gebruiken zodra de pagina bestaat:
+    // this.router.navigateByUrl('/signup');
+  }
+
+  // Forgotpagina aanmaken
+  onForgotPassword() {
+    console.log('Navigeer naar wachtwoord vergeten pagina of open modal');
+    // direct te gebruiken zodra de pagina bestaat:
+    // this.router.navigateByUrl('/forgot-password');
   }
 }
 

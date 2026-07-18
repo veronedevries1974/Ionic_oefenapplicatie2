@@ -1,71 +1,215 @@
-/* Dit zorgt ervoor dat de specifieke login-inhoud de globale groene achtergrond negeert */
-ion-content {
-  --background: linear-gradient(to top left, #4A14BC, #C51162) !important;
-  --color: #ffffff !important; 
+/* Globale container achtergrond */
+.login-content-green {
+  --padding-top: 13px;
+  --padding-bottom: 13px;
+  --padding-start: 13px;
+  --padding-end: 13px;
+  --background: linear-gradient(to bottom, #a2d2a4, #e8f5e9) !important;
 }
 
-/* Custom styling alleen voor de invoervelden op deze aparte pagina */
-.input-item {
-  --background: rgba(255, 255, 255, 0.1) !important; /* Subtiele transparante achtergrond */
-  --color: #ffffff !important;
-  --border-radius: 8px;
-  --padding-start: 16px;
-  --border-color: rgba(255, 255, 255, 0.3) !important; /* Witte subtiele rand in plaats van groen */
-  margin-bottom: 15px;
-  
-  ion-input {
-    --color: #ffffff !important;
-    color: #ffffff !important;
-  }
+/* Formulier hoogte zonder scrollen */
+.login-container-flex {
+  height: 100%;
 }
 
-/* Zorgt ervoor dat het wachtwoord-oogje wit kleurt op de paarse achtergrond */
-ion-input-password-toggle {
-  --color: #ffffff !important;
+.full-height-grid {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-/* Styling voor de login knop (Witte knop met paarse tekst) */
-ion-button[type="submit"] {
-  --background: #ffffff !important;
-  --color: #4A14BC !important; 
-  font-weight: 700;
-}
-
-/* Styling voor de sign-up tekstknop */
-ion-button[type="button"] {
-  --color: #ffffff !important;
-}
-
-/* Styling voor de bloemenafbeelding op het loginscherm */
-.header-banner {
+/* Afbeelding */
+.image-row {
   width: 100%;
-  height: 25vh;
-  object-fit: cover;
+  margin: 0;
+}
+
+.login-banner-wide {
+  width: 100% !important;
+  max-height: 18vh;  
+  height: 200px;     
+  display: block;
+  object-fit: cover; 
   border-bottom-left-radius: 24px;
   border-bottom-right-radius: 24px;
-  margin-bottom: 16px;
 }
 
-/* Transparante kaart met glaseffect die perfect werkt in álle browsers (inclusief Safari) */
-.login-welcome-card {
+/* Welkomstkaart */
+.login-welcome-card-green {
   margin-bottom: 16px;
-  /* Safari fallback: iets minder transparant voor het geval de blur-techniek faalt */
-  background: rgba(255, 255, 255, 0.25) !important; 
-  
-  /* Cruciale toevoeging voor Apple/Safari hardware-versnelling: */
-  -webkit-backdrop-filter: blur(8px) !important;
-  backdrop-filter: blur(8px) !important;
-  
-  --color: #ffffff !important;
   
   h2 {
     margin-top: 0;
-    color: #ffffff;
+    font-family: var(--ion-font-family), system-ui, -apple-system, sans-serif !important;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: black;
   }
+}
+
+.full-width-card {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  width: 100% !important;
+  box-shadow: none; 
 }
 
 .welcome-text {
   margin-bottom: 0;
-  opacity: 0.9;
-  color: #ffffff;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: black;
+}
+
+/* Input velden basis container */
+.input-item-green {
+  --background: rgba(255, 255, 255, 0.6) !important;
+  --border-radius: 8px;
+  --padding-start: 16px;
+  --highlight-color-focused: var(--ion-color-primary, #2e6930) !important;
+  margin-bottom: 15px;
+}
+
+/* Tekst invoerveld normaal */
+.input-item-green,
+.input-item-green ion-input,
+.input-item-green ::part(label),
+.input-item-green ::part(native) {
+  --color: #000000 !important;
+  color: #000000 !important;
+  --font-size: 1rem !important;
+  font-size: 1rem !important;
+  font-family: var(--ion-font-family), system-ui, -apple-system, sans-serif !important;
+  --font-weight: 400 !important; 
+  font-weight: 400 !important;
+  letter-spacing: normal !important;
+}
+
+/* Tekst placeholder */
+.input-item-green ion-input::part(placeholder) {
+  --placeholder-color: rgba(0, 0, 0, 0.5) !important;
+  font-size: large;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Styling voor de labels 'E-mail' en 'Wachtwoord' */
+.input-item-green ion-input {
+  /* Kleur voor het label */
+  --label-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Bereik de binnenkant van de Shadow DOM voor tekst-grootte en dikte */
+.input-item-green ion-input::part(label-text-wrapper),
+.input-item-green ion-input::part(label-text) {
+  font-size: large !important;
+  font-weight: 800 !important; 
+}
+
+
+/* Wachtwoord oogje */
+ion-input-password-toggle {
+  --color: #000000 !important;
+  --color-focused: #000000 !important;
+  color: #000000 !important;
+}
+
+/* Tekst knoppen bold */
+.login-btn-submit-green,
+.login-btn-signup-green {
+  --color: #000000 !important;
+  color: #000000 !important;
+  --font-size: 1rem !important;
+  font-size: 1rem !important;
+  font-family: var(--ion-font-family), system-ui, -apple-system, sans-serif !important;
+  --font-weight: 700 !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.02em !important;
+  text-transform: none !important;
+  --background: rgba(255, 255, 255, 0.8) !important;
+  --border-radius: 8px !important;
+  margin-top: 5px;
+}
+
+/* Marges voor rijen */
+.form-row {
+  margin-bottom: 8px;
+}
+
+.button-row {
+  margin-top: 12px;
+}
+
+.loading-row,
+.error-row {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+/* Wachtwoord vergeten */
+.forgot-password-row {
+  margin-top: 8px;
+  margin-bottom: 16px;
+
+  .forgot-password-link {
+    color: var(--ion-color-medium);
+    text-decoration: none;
+    font-size: 0.9rem;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+/* Laden en spinner */
+.login-loading-status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+
+  ion-spinner {
+    --color: #000000 !important;
+    width: 24px;
+    height: 24px;
+  }
+
+  p {
+    margin: 0;
+    color: #000000 !important;
+    font-size: 1rem !important;
+    font-family: var(--ion-font-family), system-ui, -apple-system, sans-serif !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.02em !important;
+  }
+}
+
+/* Foutmelding */
+.login-error-status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: rgba(255, 235, 235, 0.9);
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid var(--ion-color-danger, #eb445a);
+
+  ion-icon {
+    color: var(--ion-color-danger, #eb445a);
+    font-size: 1.3rem;
+  }
+
+  p {
+    margin: 0;
+    color: var(--ion-color-danger, #eb445a) !important;
+    font-size: 0.9rem !important;
+    font-family: var(--ion-font-family), system-ui, -apple-system, sans-serif !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.01em !important;
+    text-align: left;
+  }
 }

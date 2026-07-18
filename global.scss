@@ -36,11 +36,7 @@ ion-button {
 ion-card {
   border-radius: 12px !important;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04) !important;
-  
-  /* Fallback voor oudere browsers: iets witter gemaakt voor optimale leesbaarheid */
   background: rgba(255, 255, 255, 0.8) !important; 
-  
-  /* Cruciale hardware-versnelling voor Apple Safari (iOS / macOS) */
   -webkit-backdrop-filter: blur(4px) !important;
   backdrop-filter: blur(4px) !important; 
 }
@@ -73,9 +69,9 @@ ion-tab-button {
 .header-banner {
   border-radius: 8px;
   width: 100%;
-  max-height: 200px;
+  height: 200px;
   object-fit: cover;
-  margin-bottom: 16px;
+  display: block;
 }
 
 .secure-note {
@@ -88,5 +84,69 @@ ion-tab-button {
 }
 
 .tab-nav-btn.active-tab {
-  --color: var(--ion-color-primary) !important; /* Licht op in bosgroen */
+  --color: var(--ion-color-primary) !important; 
+}
+
+/* ==========================================================================
+   OFFICIËLE NATIVE IONIC SCROLL FIX (SCHOON & CONFLICTVRIJ)
+   ========================================================================== */
+
+/* 1. Herstel de standaard afmetingen van de app-basis en voorkom dubbele scrollers */
+html, body, ion-app, ion-router-outlet, .ion-page {
+  height: 100% !important;
+  overflow: hidden !important; 
+}
+
+/* 2. Dwing ion-content met de klasse .native-scroll om de interne scroller te activeren */
+ion-content.native-scroll {
+  --overflow: scroll !important; 
+  overflow: visible !important;
+  height: 100% !important;
+}
+
+/* 3. Doorbreek de Shadow DOM barrière voor touch-gestures */
+ion-content.native-scroll::part(scroll) {
+  overflow-y: scroll !important;
+  position: relative;
+  touch-action: pan-y !important; 
+  -webkit-overflow-scrolling: touch !important;
+}
+
+/* 4. Zorg dat de grid naadloos aansluit en onbeperkt naar beneden mag groeien */
+.matrix-grid {
+  display: block !important;
+  height: auto !important;
+  min-height: max-content !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  width: 100%;
+}
+
+.matrix-grid .grid-row-zero,
+.matrix-grid .col-padding-zero {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* 5. Vaste hoogte voor de matrix-knoppen */
+.matrix-btn {
+  margin: 0 !important;
+  --border-radius: 0;
+  height: 60px !important;
+}
+
+/* 6. Kaart styling */
+ion-card {
+  margin: 10px !important;
+  display: block;
+}
+
+.card-banner {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+}
+
+.bg-light-blue {
+  background-color: #add8e6 !important;
 }

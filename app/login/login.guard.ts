@@ -1,16 +1,15 @@
 import { inject } from '@angular/core';
-import { Router, CanMatchFn } from '@angular/router';
-import { LoginService } from '../login.service'; // Eén map omhoog naar de app-map
+import { Router, CanActivateFn } from '@angular/router';
+import { LoginService } from '../login.service'; 
 
-export const loginGuard: CanMatchFn = (route, segments) => {
+export const loginGuard: CanActivateFn = (route, state) => {
   const loginService = inject(LoginService);
   const router = inject(Router);
 
-  // Als de gebruiker NIET is ingelogd, stuur hem naar de inlogpagina
-  if (!loginService.userIsAuthenticated) {
-    router.navigateByUrl('/login');
-    return false; // Blokkeer de toegang tot de pagina
+  if (loginService.userIsAuthenticated) {
+    return true;
   }
 
-  return true; // Geef toegang tot de pagina
+  // Niet ingelogd? Stuur de gebruiker veilig terug naar login
+  return router.createUrlTree(['/login']);
 };
