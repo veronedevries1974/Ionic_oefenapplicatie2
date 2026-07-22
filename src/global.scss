@@ -1,0 +1,163 @@
+@import "@ionic/angular/css/core.css";
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
+@import "@ionic/angular/css/display.css";
+
+/* Optional CSS utils */
+@import "@ionic/angular/css/padding.css";
+@import "@ionic/angular/css/float-elements.css";
+@import "@ionic/angular/css/text-alignment.css";
+@import "@ionic/angular/css/text-transformation.css";
+@import "@ionic/angular/css/flex-utils.css";
+
+/* ==========================================================================
+   Basis HTML & Body Reset
+   ========================================================================== */
+html, body, ion-app, ion-router-outlet, .ion-page {
+  height: 100% !important;
+  overflow: hidden !important; /* Voorkomt dubbele scrollers op de app-root */
+}
+
+html {
+  font-size: 1rem;
+  line-height: 1.618;
+}
+
+body {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+/* Typografie voor specifieke componenten en titels */
+h1, h2, h3, h4, h5, h6, ion-title, ion-label, ion-input {
+  font-family: var(--ion-font-family), system-ui, -apple-system, sans-serif !important;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* ==========================================================================
+   Ionic Componenten Globale Styling
+   ========================================================================== */
+ion-button {
+  --border-radius: 8px !important; 
+  font-weight: 600;
+}
+
+/* Samengevoegde ion-card styling met volledige Safari/iOS glassmorphism ondersteuning */
+ion-card {
+  margin: 10px !important;
+  display: block;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04) !important;
+  background: rgba(255, 255, 255, 0.8) !important; 
+  -webkit-backdrop-filter: blur(4px) !important;
+  backdrop-filter: blur(4px) !important; 
+}
+
+ion-toolbar {
+  --background: transparent;
+  --border-color: transparent;
+  border-bottom: 1px solid var(--ion-color-step-100);
+}
+
+/* Basis achtergrondverloop voor standaard pagina's */
+ion-content {
+  --padding-top: 13px;
+  --padding-bottom: 13px;
+  --padding-start: 13px;
+  --padding-end: 13px;
+  --background: linear-gradient(to bottom, #a2d2a4, #e8f5e9);
+}
+
+/* Navigatiebalk onderin styling */
+ion-tab-bar {
+  --background: #e8f5e9;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+ion-tab-button {
+  --color: #557a57;
+  --color-selected: var(--ion-color-primary);
+}
+
+/* ==========================================================================
+   Officiële Native Ionic Scroll Fix (Schoon & Conflictvrij)
+   ========================================================================== */
+
+/* Dwing ion-content met de klasse .native-scroll om de interne scroller te activeren */
+ion-content.native-scroll {
+  --overflow: scroll !important; 
+  overflow: visible !important;
+  height: 100% !important;
+}
+
+/* Los de background-gradient bug op bij het scrollen */
+ion-content.native-scroll::part(background) {
+  background: linear-gradient(to bottom, #a2d2a4, #e8f5e9) !important;
+}
+
+/* Doorbreek de Shadow DOM barrière voor touch-gestures in Safari/iOS */
+ion-content.native-scroll::part(scroll) {
+  overflow-y: scroll !important;
+  position: relative;
+  touch-action: pan-y !important; 
+  -webkit-overflow-scrolling: touch !important;
+}
+
+/* ==========================================================================
+   Matrix Grid Layout & Knoppen
+   ========================================================================== */
+.matrix-grid {
+  display: block !important;
+  height: auto !important;
+  min-height: max-content !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  width: 100%;
+
+  .grid-row-zero,
+  .col-padding-zero {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+}
+
+.matrix-btn {
+  margin: 0 !important;
+  --border-radius: 0;
+  height: 60px !important;
+}
+
+/* ==========================================================================
+   Globale Herbruikbare Klassen
+   ========================================================================== */
+.header-banner {
+  border-radius: 8px;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+.card-banner {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+}
+
+.secure-note {
+  margin-top: 16px;
+  opacity: 0.7;
+}
+
+.full-width-form {
+  width: 100%;
+}
+
+.tab-nav-btn.active-tab {
+  --color: var(--ion-color-primary) !important; 
+}
+
+.bg-light-blue {
+  background-color: #add8e6 !important;
+}

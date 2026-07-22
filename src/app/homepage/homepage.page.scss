@@ -1,0 +1,63 @@
+/* ==========================================================================
+   Ionic Content & Scroll-fix (Cross-browser ondersteuning)
+   ========================================================================== */
+ion-content {
+  --overflow: auto;
+  overflow-behavior: contain; /* Voorkomt pull-to-refresh veereffect */
+  
+  &::part(scroll) {
+    overflow-y: auto !important;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+}
+
+/* ==========================================================================
+   Layout Elementen
+   ========================================================================== */
+/* Zorgt ervoor dat de matrix-grid de ruimte krijgt om verticaal uit te rekken */
+.matrix-grid {
+  flex-shrink: 0; /* Voorkomt dat de grid wordt samengedrukt door flexbox */
+  height: auto !important;
+  overflow: visible !important;
+}
+
+/* Ruimte rondom de welkomsttekst */
+.welcome-container {
+  margin-bottom: 24px;
+}
+
+/* Extra marge boven de rode uitlogknop op de pagina zelf */
+.logout-action-btn {
+  margin-top: 16px;
+  --color: var(--ion-color-danger); /* Maakt de knoptekst/icoon rood indien gewenst */
+}
+
+/* ==========================================================================
+   Centraal Container Element (oorspronkelijk uit Ionic template)
+   ========================================================================== */
+#container {
+  text-align: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+
+  strong {
+    font-size: 20px;
+    line-height: 26px;
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 22px;
+    color: #8c8c8c;
+    margin: 0;
+  }
+
+  a {
+    text-decoration: none;
+  }
+}

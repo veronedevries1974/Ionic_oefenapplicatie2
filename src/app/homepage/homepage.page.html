@@ -1,0 +1,48 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <!-- Dynamische titel links/midden -->
+    <ion-title>{{ activePageTitle }}</ion-title>
+
+   <!-- Uitlogknop aan de rechterkant van de balk -->
+<ion-buttons slot="end">
+  <ion-button (click)="onLogout()" class="logout-header-button">
+    <!-- Tekst staat nu netjes vóór het icoon -->
+    <ion-label class="logout-text">Uitloggen</ion-label>
+    <ion-icon slot="end" name="log-out-outline"></ion-icon>
+  </ion-button>
+</ion-buttons>
+</ion-toolbar>
+</ion-header>
+
+<ion-tabs>
+  <!-- De router-outlet MOET binnen ion-tabs staan -->
+  <ion-router-outlet></ion-router-outlet>
+
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="main" href="/homepage/main">
+      <ion-icon name="home"></ion-icon>
+      <ion-label>Home</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="page1" href="/homepage/page1">
+      <ion-icon name="apps"></ion-icon>
+      <ion-label>Pagina 1</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="page2" href="/homepage/page2">
+      <ion-icon name="document"></ion-icon>
+      <ion-label>Pagina 2</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="page3" href="/homepage/page3">
+      <ion-icon name="person"></ion-icon>
+      <ion-label>Pagina 3</ion-label>
+    </ion-tab-button>
+
+    <!-- Uitlogknop in de tab-balk -->
+    <ion-tab-button (click)="onLogout()">
+      <ion-icon name="log-out"></ion-icon>
+      <ion-label>Uitloggen</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>

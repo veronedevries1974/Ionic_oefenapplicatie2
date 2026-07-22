@@ -1,0 +1,67 @@
+/* ==========================================================================
+   Algemene Tekststijlen (Binnen de content wrapper)
+   ========================================================================== */
+.content {
+  // Verwijder max-width of zet deze heel hoog voor grote schermen (bijv. 100% of 1400px)
+  max-width: 100%; 
+  width: 95%; // Zorgt voor een kleine, gelijke marge (2.5%) aan de linker- en rechterkant
+  margin: 0 auto;
+
+  // Haalt de padding uit de HTML en regelt het via CSS
+  padding-top: 16px;
+  padding-bottom: 16px;
+
+  // Standaard paragraaf styling
+  p {
+    color: #555555; 
+    margin-bottom: 24px; 
+    font-size: 0.95rem;
+    opacity: 0.9; 
+  }
+
+  /* ==========================================================================
+     Afbeelding en Titel Layout (Nu ook pagina-breed)
+     ========================================================================== */
+  .page-hero {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+    width: 100%;
+    margin-bottom: 16px;
+
+    .hero-image {
+      width: 100%;
+      max-height: 250px; // Iets verhoogd omdat de foto nu breder mag uitrekken
+      object-fit: cover; 
+      border-radius: 8px;
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      margin: 0; 
+      text-align: left !important; 
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--ion-color-primary-shade, #38803b); 
+    }
+  }
+
+  /* ==========================================================================
+     Kaarten en Overige Componenten
+     ========================================================================== */
+  ion-card {
+    margin-inline: 0px; 
+    
+    img {
+      width: 100%;
+      display: block;
+      border-radius: 12px 12px 0 0; 
+    }
+
+    h2 {
+      color: var(--ion-color-primary-shade, #38803b);
+      margin-top: 16px;
+      margin-bottom: 8px;
+    }
+  }
+}

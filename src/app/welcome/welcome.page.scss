@@ -1,0 +1,30 @@
+// Styling voor de gecentreerde bloemenafbeelding bovenaan
+.header-banner {
+  display: block;
+  margin: 0 auto;
+  max-width: 90%;
+  max-height: 250px;
+  object-fit: cover;
+  border-radius: 0 0 10px 10px;
+}
+
+// Styling voor de tekstcontainer onder de afbeelding
+.welcome-container {
+  margin-top: 20px;
+
+  h1 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    // Voeg hier eventueel een kleur toe, bijv: color: #333;
+  }
+
+  p {
+    font-size: 1rem;
+    margin-top: 10px;
+  }
+}
+
+// Styling voor de inlogknop
+.login-button {
+  margin-top: 30px;
+}

@@ -1,0 +1,20 @@
+.footer { //container
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(115, 202, 115);
+    color: black;
+    text-align: left;
+}
+
+.column { //container beide kolommen
+    float: left; //links uitgelijnd
+    width: 100%; //100% breedte pagina
+}
+
+.row { //container tabel
+    display: table;
+    margin: auto; //tekst en kaartje vallen onder carousel
+    padding: 15px;
+}

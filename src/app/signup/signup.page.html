@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <!-- Knop om terug te gaan naar het inlogscherm -->
+      <ion-back-button defaultHref="/login"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Account aanmaken</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <!-- We koppelen de onRegister() functie aan de HTML submit -->
+  <form #signupForm="ngForm" (ngSubmit)="onRegister(signupForm)">
+    
+    <ion-list lines="full" class="ion-margin-bottom">
+      <!-- E-mail invoerveld -->
+      <ion-item>
+        <ion-input
+          label="E-mailadres"
+          labelPlacement="floating"
+          type="email"
+          ngModel
+          name="email"
+          required
+          email
+          #emailInput="ngModel"
+        ></ion-input>
+      </ion-item>
+
+      <!-- Wachtwoord invoerveld -->
+      <ion-item>
+        <ion-input
+          label="Wachtwoord (min. 6 tekens)"
+          labelPlacement="floating"
+          type="password"
+          ngModel
+          name="password"
+          required
+          minlength="6"
+          #passwordInput="ngModel"
+        ></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <!-- Foutmeldingen live tonen als Firebase een error geeft -->
+    <div *ngIf="errorMessage" class="ion-padding ion-margin-bottom" style="color: var(--ion-color-danger); background: rgba(var(--ion-color-danger-rgb), 0.1); border-radius: 8px;">
+      <p class="ion-no-margin">{{ errorMessage }}</p>
+    </div>
+
+    <!-- Registratieknop met ingebouwde laad-spinner -->
+    <ion-button expand="block" type="submit" [disabled]="!signupForm.valid || isSigningUp">
+      <ion-spinner *ngIf="isSigningUp" name="crescent"></ion-spinner>
+      <span *ngIf="!isSigningUp">Registreren</span>
+    </ion-button>
+
+  </form>
+</ion-content>
