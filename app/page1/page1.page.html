@@ -1,19 +1,93 @@
-<ion-header>
-  <ion-toolbar color="primary">
-    <ion-title>Page 1</ion-title>
-    <ion-buttons slot="end">
-      <ion-button (click)="onLogout()">
-        <ion-icon slot="start" name="log-out-outline"></ion-icon>
-        Uitloggen
-      </ion-button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
+<!-- Content en Scrollfunctie (Gebruikt jouw native-scroll uit global.scss) -->
+<ion-content [fullscreen]="true" class="ion-padding native-scroll" [scrollY]="true">
 
-<ion-content class="ion-padding">
-  <img src="assets/bloemen.jpg" alt="Bloemen" referrerpolicy="no-referrer" class="header-banner">
+  <!-- 1. Gekoppeld aan de .content wrapper voor breedtebeperking en centrering -->
+  <div class="content">
 
-  <h2>Welkom op Page 1</h2>
-  <p>Hier kun je de specifieke content voor jouw eerste pagina plaatsen.</p>
+    <h2>Welkom op Page 1</h2>
+    <p>Content page 1</p>
+    
+    <!-- Jouw unieke matrix-grid met 5 rijen -->
+    <ion-grid class="matrix-grid">
+      <!-- Rij 1 -->
+      <ion-row class="grid-row-zero">
+        <ion-col class="col-padding-zero">
+          <ion-button expand="block" fill="solid" color="secondary" size="small" class="matrix-btn"></ion-button>
+        </ion-col> 
+        <ion-col class="col-padding-zero">
+          <ion-button expand="block" fill="solid" color="secondary" size="small" class="matrix-btn">
+            Zoek-invoerscherm
+          </ion-button>
+        </ion-col>
+        <ion-col class="col-padding-zero">
+          <ion-button expand="block" fill="solid" color="secondary" size="small" class="matrix-btn"></ion-button>
+        </ion-col>
+      </ion-row>
+
+      <!-- Rij 2 -->
+      <ion-row class="grid-row-zero">
+        <ion-col class="col-padding-zero">
+          <ion-button expand="block" fill="none" color="none" size="small" class="matrix-btn"></ion-button>
+        </ion-col>
+        <ion-col class="col-padding-zero">
+          <ion-card>
+            <img src="assets/bloemen.jpg" alt="Bloemen" referrerpolicy="no-referrer" class="card-banner">
+            <ion-card-content>Bloemen (Rij 2)</ion-card-content>
+          </ion-card>
+        </ion-col>
+        <ion-col class="col-padding-zero">
+          <ion-button expand="block" fill="none" color="none" size="small" class="matrix-btn"></ion-button>
+        </ion-col>
+      </ion-row>
+
+      <!-- Rij 3 -->
+      <ion-row class="grid-row-zero">
+        <ion-col class="col-padding-zero">
+          <ion-button expand="block" fill="none" color="none" size="small" class="matrix-btn"></ion-button>
+        </ion-col>
+        <ion-col class="col-padding-zero">
+          <ion-card>
+            <img src="assets/bloemen.jpg" alt="Bloemen" referrerpolicy="no-referrer" class="card-banner">
+            <ion-card-content>Bloemen (Rij 3)</ion-card-content>
+          </ion-card>
+        </ion-col>
+        <ion-col class="col-padding-zero">
+          <ion-button expand="block" fill="none" color="none" size="small" class="matrix-btn"></ion-button>
+        </ion-col>
+      </ion-row>
+
+      <!-- EXTRA TEST RIJ 4 -->
+      <ion-row class="grid-row-zero">
+        <ion-col class="col-padding-zero">
+          <ion-button expand="block" fill="none" color="none" size="small" class="matrix-btn"></ion-button>
+        </ion-col>
+        <ion-col class="col-padding-zero">
+          <ion-card>
+            <img src="assets/bloemen.jpg" alt="Bloemen" referrerpolicy="no-referrer" class="card-banner">
+            <ion-card-content>Bloemen (Rij 4)</ion-card-content>
+          </ion-card>
+        </ion-col>
+        <ion-col class="col-padding-zero">
+          <ion-button expand="block" fill="none" color="none" size="small" class="matrix-btn"></ion-button>
+        </ion-col>
+      </ion-row>
+
+      <!-- EXTRA TEST RIJ 5 -->
+      <ion-row class="grid-row-zero">
+        <ion-col class="col-padding-zero">
+          <ion-button expand="block" fill="none" color="none" size="small" class="matrix-btn"></ion-button>
+        </ion-col>
+        <ion-col class="col-padding-zero">
+          <ion-card>
+            <img src="assets/bloemen.jpg" alt="Bloemen" referrerpolicy="no-referrer" class="card-banner">
+            <ion-card-content>Bloemen (Rij 5)</ion-card-content>
+          </ion-card>
+        </ion-col>
+        <ion-col class="col-padding-zero">
+          <ion-button expand="block" fill="none" color="none" size="small" class="matrix-btn"></ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </div> <!-- Sluiting van de .content wrapper -->
 </ion-content>
-

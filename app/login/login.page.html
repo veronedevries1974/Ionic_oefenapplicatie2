@@ -1,4 +1,4 @@
-<ion-content [fullscreen]="true" class="ion-padding login-content-green" [scrollY]="false">
+<ion-content [fullscreen]="true" class="ion-padding login-content-green" [scrollY]="true">
   
   <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)" class="full-width-form login-container-flex">
     <ion-grid class="ion-no-padding full-height-grid">
@@ -14,8 +14,8 @@
       <ion-row class="form-row">
         <ion-col size="10" offset="1">
           <ion-card class="ion-no-margin ion-padding login-welcome-card-green full-width-card">
-            <h2>Welkom</h2>
-            <p class="welcome-text">Vul je gegevens in om toegang te krijgen</p>
+            <h2>Intranet</h2>
+            <p class="welcome-text">Vul je gegevens in om toegang te krijgen tot het Intranet</p>
           </ion-card>
         </ion-col>
       </ion-row>
@@ -25,7 +25,7 @@
         <ion-col size="10" offset="1">
           <ion-item class="input-item-green">
             <ion-input label-placement="floating" type="email" ngModel name="email" required email>
-            <div slot="label" style="font-size: 16px; font-weight: 600; color: black (0, 0, 0, 0.5);">E-mail</div>
+              <div slot="label" style="font-size: 16px; font-weight: 600; color: rgba(0, 0, 0, 0.5);">E-mail</div>
             </ion-input>
           </ion-item>
         </ion-col>
@@ -36,20 +36,21 @@
         <ion-col size="10" offset="1">
           <ion-item class="input-item-green">
             <ion-input label-placement="floating" type="password" ngModel name="password" required>
-            <div slot="label" style="font-size: 20px; font-weight: 600; color: black (0, 0, 0, 0.5);">Wachtwoord</div>
-            <ion-input-password-toggle slot="end"></ion-input-password-toggle>
+              <!-- Gecorrigeerde kleurwaarde (rgba) -->
+              <div slot="label" style="font-size: 20px; font-weight: 600; color: rgba(0, 0, 0, 0.5);">Wachtwoord</div>
+              <ion-input-password-toggle slot="end"></ion-input-password-toggle>
             </ion-input>
           </ion-item>
         </ion-col>
       </ion-row>
 
-<!-- Foutmelding 
+<!-- Foutmelding -->
       <ion-row *ngIf="errorMessage" class="error-row">
         <ion-col size="10" offset="1" class="ion-text-center login-error-status">
           <ion-icon name="alert-circle-outline"></ion-icon>
           <p>{{ errorMessage }}</p>
         </ion-col>
-      </ion-row> -->
+      </ion-row>
 
 <!-- Login Knop -->
       <ion-row class="button-row">
@@ -71,7 +72,8 @@
 <!-- Sign up Knop -->
       <ion-row class="button-row">
         <ion-col size="10" offset="1">
-          <ion-button expand="block" class="login-btn-submit-green" type="button">
+          <!-- Click-event toegevoegd -->
+          <ion-button expand="block" class="login-btn-submit-green" type="button" (click)="onSignUp()">
             Sign up
           </ion-button>
         </ion-col>

@@ -1,0 +1,26 @@
+.content {
+  // Zorgt voor een maximale breedte op grote schermen en centreert
+  max-width: 600px; 
+  width: 90%;
+  margin: 0 auto;
+
+  // Haalt de padding uit de HTML en regelt het via CSS
+  padding-top: 16px;
+  padding-bottom: 16px;
+
+  p {
+    margin-bottom: 24px;
+    opacity: 0.9; // Maakt de lopende tekst iets zachter voor het oog
+  }
+
+  ion-card {
+    margin-inline: 0px; // Zorgt dat de kaart perfect uitlijnt met de h2 en p
+    
+    img {
+      width: 100%;
+      display: block;
+      border-radius: 12px 12px 0 0; // Rondt alleen de bovenhoeken van de foto af
+    }
+  }
+}
+

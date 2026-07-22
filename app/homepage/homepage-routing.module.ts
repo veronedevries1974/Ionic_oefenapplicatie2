@@ -1,16 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-// Importeer de Component klasse (.page), NIET de module (.module)
-import { HomePage } from './homepage.page'; 
+import { HomepagePage } from './homepage.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: HomePage, // Dit moet verwijzen naar de HomePage component klasse
+    component: HomepagePage, 
     children: [
       {
-        path: 'homepage',
-        loadChildren: () => import('../homepage/homepage.module').then(m => m.HomePageModule)
+        path: 'main',
+        loadChildren: () => import('../home/home.module').then(m => m.HomePageModule)
       },
       {
         path: 'page1',
@@ -26,7 +25,7 @@ const routes: Routes = [
       },
       {
         path: '',
-        redirectTo: 'homepage',
+        redirectTo: 'main',
         pathMatch: 'full'
       }
     ]
@@ -37,4 +36,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class HomePageRoutingModule {}
+export class HomepageRoutingModule { }

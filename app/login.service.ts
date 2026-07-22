@@ -1,29 +1,43 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
+import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, user } from '@angular/fire/auth';
+import { map, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
-  
-  // Controleer bij het opstarten direct of de browser de inlogstatus heeft onthouden
-  private isAuthenticated = localStorage.getItem('user_logged_in') === 'true';
+  // 1. Injecteer de Firebase Auth module
+  private auth: Auth = inject(Auth);
+
+  // 2. Firebase houdt hier live de ingelogde gebruiker in bij
+  currentUser$ = user(this.auth);
 
   constructor() { }
 
-  // De guard blijft dit op precies dezelfde manier uitlezen
-  get userIsAuthenticated(): boolean {
-    return this.isAuthenticated;
+  // 3. Je Guard kan deze getter blijven gebruiken!
+  // We kijken of er een geldige gebruiker (user) actief is in Firebase
+  get userIsAuthenticated$(): Observable<boolean> {
+    return this.currentUser$.pipe(
+      map(user => user !== null) // Geeft true als er een user is, anders false
+    );
   }
 
-  // Sla de status op als 'true' in de localStorage bij inloggen
-  login() {
-    this.isAuthenticated = true;
-    localStorage.setItem('user_logged_in', 'true');
+  // 4. Nieuw account registreren in Firebase
+  register(email: string, password: string) {
+    return createUserWithEmailAndPassword(this.auth, email, password);
   }
 
-  // Verwijder de status of zet hem op 'false' bij uitloggen
+  // 5. Inloggen via Firebase (vervangt jouw oude handmatige login)
+  login(email: string, password: string) {
+    return signInWithEmailAndPassword(this.auth, email, password);
+  }
+
+  // 6. Uitloggen via Firebase (vervangt jouw oude handmatige logout)
   logout() {
-    this.isAuthenticated = false;
-    localStorage.removeItem('user_logged_in');
+    return signOut(this.auth);
   }
 }
+
+// LoginService: Bevat de directe koppeling met Firebase voor zowel login(), 
+// register() als logout().Signup: Is een kleine doorgeef-service die de 
+// registratiegegevens van het scherm oppakt en doorzet naar de LoginService.

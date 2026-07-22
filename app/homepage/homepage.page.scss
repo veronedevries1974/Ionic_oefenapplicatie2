@@ -1,3 +1,23 @@
+/* Moderne, cross-browser scroll-fix voor alle browsers (Chrome, Firefox, Safari, Edge) */
+ion-content {
+  --overflow: auto;
+  overflow-behavior: contain; /* Voorkomt dat de hele app mee-veert bij het scrollen */
+  
+  &::part(scroll) {
+    overflow-y: auto !important;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+}
+
+/* Zorgt ervoor dat de matrix-grid de ruimte krijgt om verticaal uit te rekken */
+.matrix-grid {
+  flex-shrink: 0; /* Voorkomt dat de grid wordt samengedrukt door flexbox */
+  height: auto !important;
+  overflow: visible !important;
+}
+
 /* Extra marge boven de rode uitlogknop op de pagina zelf */
 .logout-action-btn {
   margin-top: 16px;

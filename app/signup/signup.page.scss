@@ -1,0 +1,27 @@
+// Centreer het formulier verticaal op grotere schermen
+form {
+  max-width: 500px;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+}
+
+// Geef de invoervelden wat extra ademruimte
+ion-item {
+  --padding-start: 8px;
+  --padding-end: 8px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+}
+
+// Styling voor de foutmeldingscontainer
+div[style*="color: var(--ion-color-danger)"] {
+  font-size: 0.9rem;
+  font-weight: 500;
+  border: 1px solid rgba(var(--ion-color-danger-rgb), 0.2);
+}
+
+// Geef de laad-spinner binnen de knop de juiste tussenruimte
+ion-spinner {
+  margin-right: 8px;
+}

@@ -1,52 +1,51 @@
+<!-- Vaste header boven elke pagina -->
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-title>Home</ion-title>
-    <ion-buttons slot="end">
-      <ion-button (click)="onLogout()">
-        <ion-icon slot="start" name="log-out-outline"></ion-icon>
-        Uitloggen
+    
+    <!-- Home knop -->
+    <ion-buttons slot="start">
+      <ion-button routerLink="/homepage/main">
+        <ion-icon slot="icon-only" name="home-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
+
+    <ion-title>Intranet</ion-title>
+    
+    <!-- Uitlogknop -->
+    <ion-buttons slot="end">
+      <ion-button (click)="onLogout()">
+        <ion-icon slot="icon-only" name="log-out-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
   </ion-toolbar>
+
+  <!-- Banner die gebruikmaakt van jouw .header-banner klasse -->
+  <img src="assets/bloemen.jpg" alt="Bloemen" referrerpolicy="no-referrer" class="header-banner">
 </ion-header>
 
-<ion-content class="ion-padding">
-  <img src="assets/bloemen.jpg" alt="Bloemen" referrerpolicy="no-referrer" class="header-banner">
-
-  <div class="welcome-container">
-    <h1>Welkom op de Homepage!</h1>
-    <p>Je bent succesvol ingelogd en deze pagina is beveiligd.</p>
-    <p>Gebruik de navigatiebalk onderaan om te wisselen van scherm.</p>
-  </div>
-
-</ion-content>
-
+<!-- De tabs-structuur -->
 <ion-tabs>
-  <!-- De router-outlet laadt de losse pagina's veilig in -->
-  <ion-router-outlet></ion-router-outlet>
-
-  <!-- Navigatiebalk strak onderaan de pagina -->
   <ion-tab-bar slot="bottom">
-
-    <!-- tab="homepage" matcht nu exact met de routing -->
-    <ion-tab-button tab="homepage">
-      <ion-icon name="home-outline"></ion-icon>
+    
+    <ion-tab-button tab="main" href="/homepage/main">
+      <ion-icon name="home"></ion-icon>
       <ion-label>Home</ion-label>
     </ion-tab-button>
 
-    <ion-tab-button tab="page1">
-      <ion-icon name="document-text-outline"></ion-icon>
-      <ion-label>Page 1</ion-label>
+    <ion-tab-button tab="page1" href="/homepage/page1">
+      <ion-icon name="apps"></ion-icon>
+      <ion-label>Pagina 1</ion-label>
     </ion-tab-button>
 
-    <ion-tab-button tab="page2">
-      <ion-icon name="document-text-outline"></ion-icon>
-      <ion-label>Page 2</ion-label>
+    <ion-tab-button tab="page2" href="/homepage/page2">
+      <ion-icon name="document"></ion-icon>
+      <ion-label>Pagina 2</ion-label>
     </ion-tab-button>
 
-    <ion-tab-button tab="page3">
-      <ion-icon name="document-text-outline"></ion-icon>
-      <ion-label>Page 3</ion-label>
+    <ion-tab-button tab="page3" href="/homepage/page3">
+      <ion-icon name="person"></ion-icon>
+      <ion-label>Pagina 3</ion-label>
     </ion-tab-button>
 
   </ion-tab-bar>

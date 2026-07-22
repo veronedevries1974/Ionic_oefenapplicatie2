@@ -3,34 +3,23 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { loginGuard } from './login/login.guard'; 
 
 const routes: Routes = [
-  {
+  { // Welkomstpagina
     path: '',
-    redirectTo: 'login',
+    loadChildren: () => import('./welcome/welcome.module').then(m => m.WelcomePageModule),
     pathMatch: 'full'
   },
-  {
+  { // Route naar login-pagina
     path: 'login',
     loadChildren: () => import('./login/login.module').then(m => m.LoginPageModule)
   },
-  {
-    path: 'home',
+  { // Route naar signup-pagina 
+    path: 'signup',
+    loadChildren: () => import('./signup/signup.module').then(m => m.SignupPageModule)
+  },
+  { // Homepage met navbalk en router-outlet waarbinnen page 1, 2, 3 beveiligd door guard 
+    path: 'homepage',
     loadChildren: () => import('./homepage/homepage.module').then(m => m.HomePageModule),
-    canActivate: [loginGuard] // <--- Veranderd naar canActivate
-  },
-  {
-    path: 'page1',
-    loadChildren: () => import('./page1/page1.module').then(m => m.Page1PageModule),
-    canActivate: [loginGuard] // <--- Veranderd naar canActivate
-  },
-  {
-    path: 'page2',
-    loadChildren: () => import('./page2/page2.module').then(m => m.Page2PageModule),
-    canActivate: [loginGuard] // <--- Veranderd naar canActivate
-  },
-  {
-    path: 'page3',
-    loadChildren: () => import('./page3/page3.module').then(m => m.Page3PageModule),
-    canActivate: [loginGuard] // <--- Veranderd naar canActivate
+    canActivate: [loginGuard]
   }
 ];
 

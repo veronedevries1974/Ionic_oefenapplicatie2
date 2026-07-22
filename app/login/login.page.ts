@@ -18,7 +18,7 @@ export class LoginPage {
     private router: Router
   ) { }
 
-  onSubmit(form: NgForm) {
+  async onSubmit(form: NgForm) {
     if (!form.valid) {
       console.log('Formulier is ongeldig. Controleer de velden.');
       this.errorMessage = 'Vul alle verplichte velden correct in.';
@@ -32,31 +32,42 @@ export class LoginPage {
     const password = form.value.password;
     console.log('Inlogpoging voor:', email);
 
-    setTimeout(() => {
-      if (password === 'wachtwoord123') {
-        this.loginService.login();          
-        this.router.navigateByUrl('/homepage').then(() => {
-          this.isLoggingIn = false;
-          form.reset();
-        });
-      } else {
-        this.isLoggingIn = false;
-        this.errorMessage = 'Onjuist e-mailadres of wachtwoord. Probeer het opnieuw.';
-      }
-    }, 1500);
-  }
+    try {
+      await this.loginService.login(email, password);
+      await this.router.navigateByUrl('/homepage');
+      form.reset();
 
-  // Registratiepagina aanmaken
+    } catch (error: any) {
+      console.error('Firebase login fout:', error);
+      
+      // Firebase v9+ gebruikt vaak 'auth/invalid-credential' voor zowel foutieve wachtwoorden als niet-bestaande gebruikers
+      if (
+        error.code === 'auth/wrong-password' || 
+        error.code === 'auth/user-not-found' || 
+        error.code === 'auth/invalid-credential'
+      ) {
+        this.errorMessage = 'Onjuist e-mailadres of wachtwoord.';
+      } else if (error.code === 'auth/invalid-email') {
+        this.errorMessage = 'Het ingevoerde e-mailadres is niet geldig.';
+      } else {
+        this.errorMessage = 'Inloggen mislukt. Probeer het later opnieuw.';
+      }
+
+    } finally {
+      this.isLoggingIn = false;
+    }
+  } 
+
+  // Gecorrigeerde navigatie naar het registratiescherm
   onSignUp() {
     console.log('Navigeer naar registratiepagina');
-    // direct te gebruiken zodra de pagina bestaat:
-    // this.router.navigateByUrl('/signup');
+    this.router.navigateByUrl('/signup'); 
   }
 
-  // Forgotpagina aanmaken
+  // Optionele voorbereiding voor wachtwoordherstel (bijvoorbeeld een dedicated pagina of modal)
   onForgotPassword() {
-    console.log('Navigeer naar wachtwoord vergeten pagina of open modal');
-    // direct te gebruiken zodra de pagina bestaat:
+    console.log('Navigeer naar wachtwoord vergeten pagina');
+    // Mocht je een wachtwoord-vergeten pagina hebben (bijvoorbeeld /forgot-password), activeer dan deze regel:
     // this.router.navigateByUrl('/forgot-password');
   }
 }

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { LoginService } from '../login.service'; 
+
 @Component({
   selector: 'app-page3',
   templateUrl: './page3.page.html',
@@ -9,18 +8,10 @@ import { LoginService } from '../login.service';
 })
 export class Page3Page implements OnInit {
 
-  constructor(
-    private loginService: LoginService,
-    private router: Router
-  ) { }
+  // De router, LoginService en onLogout zijn hier niet meer nodig
+  constructor() { }
 
   ngOnInit() {
     // Code die draait zodra page3 wordt geladen
-  }
-
-  // Zorgt ervoor dat de uitlogknop in de top-menubalk werkt
-  onLogout() {
-    this.loginService.logout();
-    this.router.navigateByUrl('/login');
   }
 }
